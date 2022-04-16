@@ -1,5 +1,7 @@
 <html>
-<header>
+  <header>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charSet="utf-8"/>
     <style type="text/css">
         h1 {
             text-align: center;
@@ -13,30 +15,68 @@
             color: red;
             font-size: medium;
         }
+
+        .clarify {
+            color: blue;
+            font-size: large;
+        }
+
+        .block {
+            display: inline-block;
+            width:0.7rem;
+            height:0.7rem;
+            border: 0rem;
+            margin: 0rem;
+            margin-right: 0.2rem;
+        }
+
+        #blocked{
+            background:#ffdddd;
+        }
+
+        #managed{
+            width:0.7rem;
+            height:0.7rem;
+            background:#ffdfbd;
+        }
+
+        #protected{
+            width:0.7rem;
+            height:0.7rem;
+            background:#c0ffc0;
+        }
+
+
     </style>
 </header>
-<body>
+  <body>
     <div class="manual">
         <h1>网站使用说明</h1>
         <h2>网站功能</h2>
         <div>本站主要功能为方便用户查询上海卫健委发布的小区感染日期。<b>（*查看 <a href="#notice">注意事项</a>）</b></div>
         <div>网站包括如下功能：</div>
         <div>
-            <h3><a href="/">主页面</a></h3>
+            <h3><a href="https://chenfan.info/">主页面</a></h3>
             <ul>
-                <li><b>普通查询</b>：主页面可通过地址搜索最近阳性报告的日期。</li>
+                <li><b>普通查询</b>：主页面可通过地址搜索最近阳性报告的日期。<b>新</b>：小区栏背景颜色标识为本站推测的三区时间（*查看 <a href="#notice">注意事项</a>），其中
+                    <div><div id="blocked" class="block"></div>：封控区，
+                    <div id="managed" class="block"></div>：管控区，
+                    <div id="protected" class="block"></div>：防范区。</div>
+                    <div>每一个色块代表预计该小区将在该区停留的时间。栏位“解封剩余”指推测到达“防范区”的剩余天数。</div>
+                </li>
                 <li><b>查询地址</b>：其中，地址为卫健委发布在网页上的地址。该地址<b>一般</b>包含道路的名称和门牌号，不包含行政区和具体单元号。偶尔出现不同日期的报告有时使用门牌号，有时使用小区名的情况。请分别查询。</li>
                 <li><b>模糊查询</b>：查询地址使用模糊匹配。地址中包含查询的内容都会显示。<i>例如：查询<b>“山阴路”</b>会显示<b>“山阴路57弄”</b>的阳性日期。</i></li>
                 <li><b>联合查询</b>：查询地址可以使用<b>“|”</b>同时查询多个地址。<i>例如：查询<b>“南宁路501|馨汇南苑”</b>
                     会显示匹配“<b>南宁路501”</b>和<b>“馨汇南苑”</b>的所有记录。</i></li>
             </ul>
         </div>
-        <div><h3><a href="/dist">行政区阳性报告小区数</a></h3>
+        <div><h3><a href="https://chenfen.info/dist">行政区阳性报告小区数</a></h3>
             该页面显示最近五天，各行政区报告的阳性小区的个数。
         </div>
         <div>
-            <h3><a href="/search/查询地址">常驻查询</a></h3>
-            该页面为查询固定地址的网页。使用方式为<a href="/search/查询地址">https://chenfan.info/search/(填入常用查询地址)</a>。方便收藏常用地址的查询。
+            <h3><a href="https://chenfen.info/">收藏页</a><span class="important">(推荐使用)</span></h3>
+            该页面为查询固定地址的网页。使用方式为在<a href="https://chenfen.info/">主页面</a>填入搜索地址后点击“<b>收藏页</b>”按钮。进入收藏页后将页面发送至主屏幕。操作以后，可以直接从桌面启动查询关心的地址，无需重复输入。如需查询其他地址，点击logo即可。<br/>
+	    *<b class="important">注意</b>：部分Android手机需要在应用管理中打开浏览器的“桌面快捷方式”权限才能正常使用。
         </div>
     </div>
     <div class="notice">
@@ -44,11 +84,39 @@
         <ul>
             <li><b class="important">请务必注意</b>：本站非官方网站,仅用于交流和学习。本站不对数据做任何保证。本站不对使用本站所造成的损失承担任何责任。</li>
             <li>本站数据均抓取自<b>上海发布公众号</b>和<a href="https://wsjkw.sh.gov.cn/xwfb/index.html">上海卫健委网站</a>。</li>
-            <li>如果官方发布数据有错误或遗漏，本站没有能力进行修改或更正。</li>
+            <li>如果官方发布数据有错误或遗漏，本站没有能力进行修改或更正。如果官方未提供的数据，如小区阳性人数，某栋或某号的阳性记录等，本站也无法提供。</li>
             <li>如果有官方出具的勘误说明，若本站发现，可能会予以修正。由于精力有限，本站无法保证所以勘误都能及时或最终被修正。</li>
             <li>非官方发布之信息，本站无法验证其真实性和准确性，故不会进行数据修改。望见谅。</li>
-            <li><b class="important">请勿使用本站数据推测解封时间。具体解封政策请咨询当地防疫机构。</b></li>
+            <li><b class="important">本站使用官方公布的信息进行“三区”推测。但由于官方并没有公布计算细节，本站显示的倒计时为推测值。具体解封政策请咨询当地防疫机构。</b></li>
         </ul>
     </div>
+    <div>
+      <h2>其他说明</h2>
+      <h3>关于数据更新</h3>
+      <div>每天，上海卫健委都会在其<a href="https://wsjkw.sh.gov.cn/xwfb/index.html">官方新闻发布页</a>发布前一日的小区感染报告。</div>
+      <div>报告一般以“<i>X月X日（0-24时）本市各区确诊病例、无症状感染者居住地信息</i>”作为标题。</div>
+      <div>本站后台每15分钟会检查并抓取最新发布公告。所以一般在网页发布后的15分钟，最新数据会同步到本站。</div>
+      <div>但自卫健委开始在“<i>上海发布公众号</i>”发布小区感染信息，卫健委官方网站更新就存在严重滞后。</div>
+      <div>一般来说，“<i>上海发布公众号</i>”会在每日09：30以后发布前一日的统计报告。但该报告链接出现在卫健委网站一般是下午某个时刻。</div>
+      <div>而由于微信公众号的文章链接难以自动探测，为了及时反馈最新信息，本站作者有时会手动上传链接数据进行抓取。</div>
+      <div>但手动上传的时间不定，所以本站的数据更新有一定的不确定性。</div>
+      <div class="important">本站数据从3月18日开始收录。3月18日之前的数据不能反应在本站的查询中。</div>
+      <h3>关于作者</h3>
+      <div>本站为个人网站，网站所有开发均由作者本人完成。囿于时间，精力，技术方面的限制，网站可能出现各种问题。如遇到问题或者出于其他原因欲联系作者，请发送邮件至<a href="mailto:c-fan@outlook.com">c-fan@outlook.com</a>。</div>
+      <h3>最后</h3>
+      <div>本站已应某小伙伴要求将默认地址由“龙阳路”修改为“山阴路”，以避免每次打开网站都会看到一个“阳”字。</div>
+      <div>最后期望，不管以哪种方式，大家都能保持身体健康，尽快恢复到正常的生活中去。</div>
+    </div>
+    <div class="clarify">
+      <h2>日志</h2>
+      <h3>2022年4月10日</h3>
+          <div>本站于2022年4月10日上午09：25受到大量DDOS网络攻击。后被运营商强制隔离，导致服务下线。</div>
+	  <div>DDOS攻击是一种攻击手段简单，但防御难度较大的攻击方式。</div>
+	  <div>实际上，自本站建立以来就不时受到各种网络攻击。</div>
+	  <div>本站设备简陋，除非购买昂贵的运营商保护功能，本站很难在此类攻击下幸免。</div>
+	  <div>本站建立初衷是便于交流与学习，无意向商业化方向发展。</div>
+	  <div>所以如果遇到服务下线，请各位用户耐心等待，稍后再试。谢谢。</div>
+    </div>
+
 </body>
 </html>
