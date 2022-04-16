@@ -68,5 +68,5 @@ long_search_button.addEventListener("click", function() {
             flash_input();
             return;
         }
-        window.location.pathname = ("./search/" + addr)
+        window.location.pathname = "./search/" + addr
     })
