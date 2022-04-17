@@ -3,6 +3,35 @@
     margin-top: 1rem;
 }
 
+.dist-tables table {
+    background-color: honeydew;
+}
+
+.dist-tables td, .dist-tables th {
+    padding: 0.1rem 0.2rem;
+    border: solid 0.1rem black;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.dist-tables tr th:nth-child(1) {
+    white-space: normal;
+}
+
 .table-sec {
     margin-bottom: 2rem;
+}
+
+#comm-table tbody tr:first-child {
+    border: solid 0.3rem red;
+}
+
+#pp-table tbody tr:first-child {
+    border: solid 0.3rem red;
+    border-bottom: initial;
+}
+
+#pp-table tbody tr:nth-child(2) {
+    border: solid 0.3rem red;
+    border-top: initial;
 }
