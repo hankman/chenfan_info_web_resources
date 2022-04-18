@@ -1,3 +1,4 @@
+
 var allow_query = true
 
 const button = document.getElementById("search");
@@ -42,6 +43,33 @@ const flash_input = () => {
     change_input_bg();
 }
 
+function processing_data(data)
+{
+    div = document.getElementById("data-div")
+    var child = div.lastElementChild;
+    while (child) {
+        div.removeChild(child);
+        child = div.lastElementChild;
+    }
+
+    table = create_table(data);
+    div.appendChild(table);
+
+    div.scrollTop = 0;
+    enable_query()
+}
+
+
+function do_ajax_query(addr)
+{
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function() {
+        processing_data(this.responseText);
+    }
+    xhttp.open("GET", './search_data/' + addr, true);
+    xhttp.send();
+}
+
 function search_address()
 {
     if (!allow_query) return;
@@ -49,17 +77,17 @@ function search_address()
         flash_input();
         return;
     }
-    document.getElementById("result").src = "./iframe_search/" + addr_input.value
+    do_ajax_query(addr_input.value)
     disable_query()
-    setTimeout(enable_query, 3000)
 }
 
 document.getElementById("address").addEventListener(
     "keyup", function(event) {
-        if (event.keyCode === 13 && allow_query) {
+        if (event.key  == "Enter" && allow_query) {
             search_address();
         }
     })
+
 button.addEventListener("click", search_address)
 
 long_search_button.addEventListener("click", function() {
