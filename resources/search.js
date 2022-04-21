@@ -43,7 +43,7 @@ const flash_input = () => {
     change_input_bg();
 }
 
-function processing_data(data)
+function processing_search_data(data)
 {
     div = document.getElementById("data-div")
     var child = div.lastElementChild;
@@ -62,12 +62,12 @@ function processing_data(data)
 
 function do_ajax_query(addr)
 {
-    const xhttp = new XMLHttpRequest();
-    xhttp.onload = function() {
-        processing_data(this.responseText);
+    const xhttp_search_data = new XMLHttpRequest();
+    xhttp_search_data.onload = function() {
+        processing_search_data(this.responseText);
     }
-    xhttp.open("GET", './search_data/' + addr, true);
-    xhttp.send();
+    xhttp_search_data.open("GET", './search_data/' + addr, true);
+    xhttp_search_data.send();
 }
 
 function search_address()
