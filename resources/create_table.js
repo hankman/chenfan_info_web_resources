@@ -46,9 +46,9 @@ function insert_community_status(th, name, color) {
 function create_table_body(data) {
     let tbody = document.createElement("tbody");
 
-    let last_dist = document.createElement("th");
-    let last_community = document.createElement("th");
-    let last_remain = document.createElement("th");
+    let last_dist = null;
+    let last_community = null;
+    let last_remain = null;
     let today = new Date()
 
     const rows = data.split("\n");
@@ -66,7 +66,7 @@ function create_table_body(data) {
         date = new Date(date_str)
 
         let tr = document.createElement("tr")
-        if (dist == last_dist.textContent) {
+        if (last_dist && dist == last_dist.textContent) {
             last_dist.rowSpan += 1;
         }
         else {
@@ -75,9 +75,10 @@ function create_table_body(data) {
             th.rowSpan = "1"
             tr.appendChild(th)
             last_dist = th
+            last_community = document.createElement("th")
         }
 
-        if (community == last_community.textContent) {
+        if (community && community == last_community.textContent) {
             last_community.rowSpan += 1;
             last_remain.rowSpan += 1;
         }
