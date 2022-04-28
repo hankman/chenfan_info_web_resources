@@ -3,7 +3,7 @@
 # Introduction
 This repo contains static parts for <a href="https://chenfan.info" target="_blank" rel="noopener noreferrer">chenfan.info</a>, including images, front-end scripts, html and etc..
 
-For more information check https://github.com/hankman/web_server.
+For more information check <a href="https://github.com/hankman/web_server">https://github.com/hankman/web_server</a>.
 
 
 # License
