@@ -1,11 +1,20 @@
 
 function create_table_head() {
-    thead = document.createElement("thead");
-    tr = document.createElement("tr");
+    let thead = document.createElement("thead");
+    let tr = document.createElement("tr");
     thead.appendChild(tr);
     ["区", "地址", "解封剩余", "报告日期"].forEach(function (item, index) {
-            th = document.createElement("th");
-            th.textContent = item;
+            let th = document.createElement("th");
+
+            if (item == "解封剩余") {
+                let tdiv = document.createElement("div")
+                tdiv.textContent = item;
+                tdiv.style.color = "red"
+                th.appendChild(tdiv)
+            }
+            else {
+                th.textContent = item;
+            }
             tr.appendChild(th);
         })
     return thead;
