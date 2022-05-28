@@ -1,5 +1,5 @@
 
-let url_parts= decodeURI(window.location.href).split("/")
+let url_parts= decodeURI(window.location.pathname).split("/")
 let query_str = url_parts[url_parts.length - 1]
 
 title = document.getElementById("common-title")
@@ -12,5 +12,5 @@ xhttp_long_search_data.onload = function() {
     div.appendChild(table);
 }
 
-xhttp_long_search_data.open("GET", "/search_data/" + query_str, true);
+xhttp_long_search_data.open("GET", "../../search_data/" + query_str, true);
 xhttp_long_search_data.send();

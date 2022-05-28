@@ -30,7 +30,7 @@ function refresh_update_date()
         update_date_a.textContent = this.responseText;
     }
 
-    xhttp_date.open("GET", "/update_date/", true);
+    xhttp_date.open("GET", get_url_prefix() + "/update_date/", true);
     xhttp_date.send();
 }
 

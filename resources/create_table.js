@@ -156,7 +156,7 @@ function create_table(data)
     }
 
     let table = document.createElement("table");
-
+    table.classList.add("extra-header-table")
 
     let thead = create_table_head()
     let tbody = create_table_body(data)
