@@ -23,5 +23,5 @@ xhttp_long_search_data.onload = function() {
     div.appendChild(table);
 }
 
-xhttp_long_search_data.open("GET", "../../search_data/" + query_str, true);
+xhttp_long_search_data.open("GET", url_parts.slice(0, -2).join("/") + "/search_data/" + query_str, true);
 xhttp_long_search_data.send();
