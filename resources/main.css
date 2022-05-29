@@ -78,6 +78,18 @@ body {
     left: -5rem;
 }
 
+#domain-switch {
+    top: -0.1rem;
+    font-size: 1rem;
+    right: -2rem;
+}
+
+#common-domain-switch {
+    top: 1.5rem;
+    font-size: 1rem;
+    right: -3rem;
+}
+
 .notice {
     font-size: 0.75em;
     font-style: italic;
@@ -138,6 +150,10 @@ button {
     margin-top: 0.5rem;
     width: 100%;
     height: 0;
+}
+
+#logo-center {
+    left: 0%;
 }
 
 .wide-body {
