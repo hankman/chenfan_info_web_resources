@@ -103,7 +103,7 @@ function create_table(data)
 {
     if (data.length == 0) {
         let div = document.createElement("div");
-        div.textContent = '(无感染记录或未收录地址。您也可以尝试查询小区名称。注意，输入地址请勿包含行政区。)'
+        div.textContent = '(无感染记录或未收录地址。您也可以尝试查询小区名称。注意，输入地址请勿包含行政区。您当前查询的是*北京市*信息。)'
         return div
     }
 
